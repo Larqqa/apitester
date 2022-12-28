@@ -1,0 +1,18 @@
+[package]
+name = "apitester"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib/mod.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.0.32", features = ["derive"] }
+reqwest = { version = "0.11.13", features = ["json"] }
+tokio = { version = "1.23.0", features = ["macros", "rt-multi-thread"] }
+confy = "0.5.1"
+serde = "1.0.152"
+serde_derive = "1.0.152"
+serde_json = "1.0.91"

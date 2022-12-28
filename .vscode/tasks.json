@@ -1,0 +1,28 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"command": "cargo",
+			"args": [
+				"run",
+				"--",
+				"-t",
+				"GET",
+				"-u",
+				"http://localhost:3100/api/test?asd=true",
+				"-n",
+				"post",
+				"-e",
+				"json"
+			],
+			"problemMatcher": [
+				"$rustc"
+			],
+			"label": "Rust: cargo run",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+	]
+}
