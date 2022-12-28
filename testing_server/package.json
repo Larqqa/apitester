@@ -1,0 +1,14 @@
+{
+  "name": "testing_server",
+  "version": "1.0.0",
+  "description": "This is a mock server for testing the apitester crate.",
+  "main": "index.js",
+  "scripts": {
+    "start": "mocks-server"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@mocks-server/main": "^4.0.0"
+  }
+}
