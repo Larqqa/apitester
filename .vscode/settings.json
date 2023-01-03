@@ -8,5 +8,7 @@
     }
   },
   "editor.formatOnSave": true,
-  "editor.tabSize": 4,
+  "[rust]": {
+    "editor.tabSize": 4,
+  }
 }

@@ -1,7 +1,6 @@
-use crate::writer::write_to_file;
 use reqwest::{header::HeaderMap, Error, RequestBuilder, Response, Url};
 use serde_json::Value;
-use std::{collections::HashMap, path::Path};
+use std::{collections::HashMap};
 
 pub async fn get(url: Url, headers: HeaderMap, body: String) -> Result<Response, Error> {
     let client = reqwest::Client::new();
@@ -57,14 +56,24 @@ pub async fn make_request(
     method.send().await
 }
 
-pub async fn read_result_text(res: Result<Response, Error>, target_path: String) {
+pub async fn read_result_text(res: Result<Response, Error>) -> String {
     let text = match res {
         Err(e) => panic!("{:?}", e),
         Ok(r) => r.text().await,
     }
     .expect("Could not read body of response.");
-
-    write_to_file(text, Path::new(&target_path))
-        .await
-        .expect("Something went wrong writing the result to file!");
+    text
 }
+
+// pub async fn read_result_text(res: Result<Response, Error>, target_path: String) {
+//     let text = match res {
+//         Err(e) => panic!("{:?}", e),
+//         Ok(r) => r.text().await,
+//     }
+//     .expect("Could not read body of response.");
+
+//     write_to_file(text, Path::new(&target_path))
+//         .await
+//         .expect("Something went wrong writing the result to file!");
+// }
+

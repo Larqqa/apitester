@@ -1,34 +1,16 @@
-# API Tester
-## Simple cli tool to test some API endpoints
+# Tauri + Vue 3 + TypeScript
 
-### How it works
-You input the parameters you want to test and it writes the response to an output file. This is mainly designed for JSON based APIs but you can also define the result file as any type as long as it's representable by Reqwests text method.
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-### Type and URL
-Basic use for the tool is to give a HTTP request type and url to do the given request to.
-- Type is given with the `-t | --type` flag, and can be `GET | POST | PUT | PATCH | DELETE`
-- URL is given with the `-u | --url` flag
+## Recommended IDE Setup
 
-### Resources folder
-The tool uses `body.json` and `headers.toml` for resources you can give the requests. These are created by default if not found.
-You can also define a custom path for the body with the `-b | --body` flag.
+- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
 
-The body is handled either as a basic string that is given to `reqwest::Body` constructor, or as any valid JSON which is given to `reqwest::Json` constructor.
+## Type Support For `.vue` Imports in TS
 
-Headers should be defined using Toml formatting, for example a basic auth header should be given as
-```toml
-[[headers]]
-name = "Authorization"
-value = "bearer token"
-```
+Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
 
-### Output
-Default output is in `output/result`.
-- Destination folder path can be given with the `-p | --path` flag.
-- Output file name can be given with the `-n | --name` flag.
-- The file extension can be given with the `-e | --extension` flag.
+1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
+2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
 
-### Development
-There is a simple mock API using `mocks-server` that can be used to easily test the requests.
-- Mock API starts by running `npm start` in the `testing_server` folder
-- The server runs at `http://localhost:3100`
+You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).

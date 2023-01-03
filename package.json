@@ -1,0 +1,41 @@
+{
+  "name": "tauri-app",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "start": "tauri dev",
+    "dev": "set RUST_BACKTRACE=1 && concurrently -k \"npm run vite:dev\" \"npm run devtools\"",
+    "vite": "vite",
+    "vite:dev": "vite dev",
+    "devtools": "vue-devtools",
+    "tauri": "tauri",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "^1.2.0",
+    "prismjs": "^1.29.0",
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.2.2",
+    "@types/node": "^18.7.10",
+    "@types/prismjs": "^1.26.0",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "@vue/devtools": "^6.4.2",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-security": "^1.5.0",
+    "eslint-plugin-vue": "^9.5.1",
+    "sass": "^1.57.1",
+    "typescript": "^4.6.4",
+    "unplugin-auto-import": "^0.12.1",
+    "vite": "^4.0.0",
+    "vitest": "^0.23.4",
+    "vue-tsc": "^1.0.11"
+  }
+}
